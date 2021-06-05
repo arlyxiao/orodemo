@@ -1,0 +1,3 @@
+# src/Acme/Bundle/UserBundle/Resources/config/oro/bundles.yml
+bundles:
+    - Acme\Bundle\UserBundle\AcmeUserBundle

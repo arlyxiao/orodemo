@@ -1,0 +1,4 @@
+acme_user_bundle:
+    resource:     "@AcmeUserBundle/Controller"
+    type:         annotation
+    prefix:       /user
