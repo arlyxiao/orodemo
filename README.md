@@ -1,29 +1,61 @@
-OroCommerce Sample Application
-==============================
+### Orocommerce Customization Demo
 
-What is OroCommerce?
---------------------
+#### Installation
+docker
+```
+brew cask install docker
+open /Applications/Docker.app
+```
 
-OroCommerce is an open-source Business to Business Commerce application built with flexibility in mind. It can be customized and extended to fit any B2B commerce needs.
-You can find out more about OroCommerce at [www.orocommerce.com](https://www.orocommerce.com/).
+php
+```
+brew install php@7.4 composer node docker-compose
+echo 'export PATH="/usr/local/opt/php@7.4/bin:$PATH" \nexport PATH="/usr/local/opt/php@7.4/sbin:$PATH" \nexport PATH="/usr/local/opt/node@12/bin:$PATH"' >> ~/.zshrc
+```
 
-System Requirements
--------------------
+configure php
+```
+echo "memory_limit = 2048M \nmax_input_time = 600 \nmax_execution_time = 600 \nrealpath_cache_size=4096K \nrealpath_cache_ttl=600 \nopcache.enable=1 \nopcache.enable_cli=0 \nopcache.memory_consumption=512 \nopcache.interned_strings_buffer=32 \nopcache.max_accelerated_files=32531 \nopcache.save_comments=1" >> /usr/local/etc/php/7.4/php.ini
+```
 
-Please see the OroCommerce online documentation for the complete list of [system requirements](https://doc.oroinc.com/backend/setup/system-requirements/).
+install project
+```
+curl -sS https://get.symfony.com/cli/installer | bash
+echo 'export PATH="$HOME/.symfony/bin:$PATH"' >> ~/.zshrc
+source ~/.zshrc
+symfony local:server:ca:install
+```
 
-Installation
-------------
+#### Server start
+start mysql
+```
+docker-compose up
+```
 
-Please see the [OroCommerce and OroCRM Community Edition Installation Guide](https://doc.oroinc.com/backend/setup/dev-environment/manual-installation/commerce-ce/) for the detailed installation steps.
+start server
+```
+symfony server:start
+```
 
-Resources
----------
+#### Console Development Command
 
-  * [OroCommerce Documentation](https://doc.oroinc.com)
-  * [Contributing](https://doc.oroinc.com/community/contribute/)
+Show current routes
+```
+php bin/console debug:router
+```
 
-License
--------
- 
-[OSL-3.0](LICENSE) Copyright (c) 2015 - 2017, Oro, Inc.
+Clear cache
+```
+php bin/console cache:clear --env=de
+```
+
+Check envrionment variable
+```
+php bin/console debug:container --env-vars
+```
+
+Some system info
+```
+php bin/console --version
+php bin/console about
+```
