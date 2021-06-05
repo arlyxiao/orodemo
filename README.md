@@ -37,6 +37,11 @@ start server
 symfony server:start
 ```
 
+#### Check customization widget
+```
+https://127.0.0.1:8000/admin/user/view/1
+```
+
 #### Console Development Command
 
 Show current routes
@@ -58,4 +63,15 @@ Some system info
 ```
 php bin/console --version
 php bin/console about
+```
+
+#### Related docs
+create bundle
+```
+https://doc.oroinc.com/backend/extension/create-bundle/
+```
+
+Symfony best practice
+```
+https://symfony.com/doc/4.4/bundles/best_practices.html#bundle-name
 ```
